@@ -1,0 +1,16 @@
+[[language]]
+name = "powershell"
+language-servers = ["powershell-es"]
+formatter = { command = "pwsh", args = ["-NoProfile", "-Command", "$c = [Console]::In.ReadToEnd(); (Invoke-Formatter -ScriptDefinition $c).TrimEnd()"] }
+# auto-format = true
+
+[language-server.powershell-es]
+command = "pwsh"
+args = [
+  "-NoLogo",
+  "-NoProfile",
+  "-NonInteractive",
+  "-ExecutionPolicy", "Bypass",
+  "-Command",
+  "& 'C:\\tools\\PowerShellEditorServices\\Start-EditorServices.ps1' -HostName Helix -HostProfileId 0 -HostVersion 1.0.0 -LogPath 'C:\\Users\\nadir\\AppData\\Local\\Temp\\pses.log' -LogLevel Normal -SessionDetailsPath 'C:\\Users\\nadir\\AppData\\Local\\Temp\\pses-session.json' -FeatureFlags @() -AdditionalModules @() -BundledModulesPath 'C:\\tools\\PowerShellEditorServices' -Stdio"
+]
